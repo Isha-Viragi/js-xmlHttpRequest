@@ -45,7 +45,7 @@ createXmlHttpRequest(2); //Call function with id
 
 //Create page layout
 //create an array to store facts
-const facts = ['fact1', 'fact2', 'fact3', 'fact4', 'fact5', 'fact6'];
+const facts = [];
 
 //select html div to input this grid into
 const display = document.querySelector('.js-layout-container');
@@ -66,6 +66,20 @@ display.innerHTML = pageHtml
 
 
 
+//Load data and pass to function 
+function xmlHttpRequestHook(factCount, fun) {
+  const xhr = new XMLHttpRequest();
+
+  xhr.addEventListener('load', () => {
+    const data = JSON.parse(xhr.response).data;
+    return data;
+  })
+
+  xhr.open('GET', `https://meowfacts.herokuapp.com/?count=${factCount}`);
+  xhr.send();
+
+  fun(data);
+}
 
 
 
