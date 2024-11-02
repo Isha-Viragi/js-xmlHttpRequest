@@ -42,27 +42,28 @@ createXmlHttpRequest(1); //Call function with id
 createXmlHttpRequest(2); //Call function with id
 
 
+function renderFactsHtml(data) {
+  //Create page layout
+  //create an array to store facts
+  const facts = data;
 
-//Create page layout
-//create an array to store facts
-const facts = [];
+  //select html div to input this grid into
+  const display = document.querySelector('.js-layout-container');
+  let pageHtml = '';
+  let count = 0;
 
-//select html div to input this grid into
-const display = document.querySelector('.js-layout-container');
-let pageHtml = '';
-let count = 0;
-
-//iterate through the facts and dynamically render every fact on page 
-facts.forEach(fact => {
-  count++;
-  pageHtml += `
+  //iterate through the facts and dynamically render every fact on page 
+  facts.forEach(fact => {
+    count++;
+    pageHtml += `
   <div>
   <p>Fact ${count}</p>
   <p>${fact}</p>
   </div>
   `
-});
-display.innerHTML = pageHtml
+  });
+  display.innerHTML = pageHtml
+}
 
 
 
@@ -80,6 +81,7 @@ function xmlHttpRequestHook(factCount, fun) {
 
   fun(data);
 }
+
 
 
 
