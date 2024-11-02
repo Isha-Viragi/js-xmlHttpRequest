@@ -73,15 +73,16 @@ function xmlHttpRequestHook(factCount, fun) {
 
   xhr.addEventListener('load', () => {
     const data = JSON.parse(xhr.response).data;
-    return data;
+    fun(data);
   })
 
   xhr.open('GET', `https://meowfacts.herokuapp.com/?count=${factCount}`);
   xhr.send();
 
-  fun(data);
 }
 
 
+//Call xmlHttpRequest hook and pass renderFactsHtml
+xmlHttpRequestHook(6, renderFactsHtml);
 
 
