@@ -7,4 +7,5 @@ xhr.addEventListener('load', () => { //Listen for response
   const data = JSON.parse(xhr.response).data;
   console.log(data)
 
+  document.querySelector(".js-display").innerHTML = data
 }) 
