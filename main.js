@@ -43,5 +43,29 @@ createXmlHttpRequest(2); //Call function with id
 
 
 
+//Create page layout
+//create an array to store facts
+const facts = ['fact1', 'fact2', 'fact3', 'fact4', 'fact5', 'fact6'];
+
+//select html div to input this grid into
+const display = document.querySelector('.js-layout-container');
+let pageHtml = '';
+let count = 0;
+
+//iterate through the facts and dynamically render every fact on page 
+facts.forEach(fact => {
+  count++;
+  pageHtml += `
+  <div>
+  <p>Fact ${count}</p>
+  <p>${fact}</p>
+  </div>
+  `
+});
+display.innerHTML = pageHtml
+
+
+
+
 
 

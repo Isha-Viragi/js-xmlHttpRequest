@@ -13,6 +13,12 @@
       p {
         margin: 6px 0px;
       }
+      .layout-container {
+        display: grid;
+        grid-template-columns: 200px 200px 200px;
+        row-gap: 12px;
+        column-gap: 12px;
+      }
     </style>
   </head>
   <body>
@@ -20,6 +26,7 @@
       <div class="js-display-1"></div>
       <div class="js-display-2"></div>
       <div class="js-display-3"></div>
+      <div class="js-layout-container layout-container"></div>
     </main>
     <script src="main.js"></script>
   </body>
