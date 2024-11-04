@@ -1,12 +1,14 @@
-export function metObjectIdRequest(word) {
+export function metObjectIdRequest(word, callbackFunction) {
   const xhr = new XMLHttpRequest();
 
   xhr.open('GET', `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${word}`);
   xhr.send();
 
   xhr.addEventListener('load', () => {
-    const response = JSON.parse(xhr.response).objectIDs[0];
-    console.log(response);
+    const id = JSON.parse(xhr.response).objectIDs[0];
+
+    if (callbackFunction)
+      callbackFunction(id)
   })
 }
 
