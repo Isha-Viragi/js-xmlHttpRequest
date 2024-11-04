@@ -11,10 +11,10 @@ catFactXhr.addEventListener('load', () => {
   const data = JSON.parse(catFactXhr.response).data[0];
   document.querySelector('.js-display-4').innerHTML = data;
 
-  const words = data.split(" ");
-  if (words.length > 5) word = words[5].toLowerCase();
-  else if (words.length < 5) word = words[0].toLowerCase();
-  else word = "lake";
+  const words = data.split(" ") || ['undefined'];
+
+  const index = Math.floor(Math.random() * words.length);
+  word = words[index]
   console.log(word)
 
   metObjectIdRequest(word, (id) => {

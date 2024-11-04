@@ -5,8 +5,8 @@ export function metObjectTitleRequest(id) {
   xhrTitle.send();
 
   xhrTitle.addEventListener('load', () => {
-    console.log(JSON.parse(xhrTitle.response).primaryImage)
     console.log(JSON.parse(xhrTitle.response).title)
+    console.log(JSON.parse(xhrTitle.response).primaryImage)
     console.log(JSON.parse(xhrTitle.response).objectName)
     console.log(JSON.parse(xhrTitle.response).artistDisplayName)
   })
