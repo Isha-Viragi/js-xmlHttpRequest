@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XMLHttpRequest</title>
     <style>
+      * {
+        font-family: Helvetica, Arial, sans-serif;
+      }
       .main-container {
         display: flex;
         flex-direction: column;
@@ -14,20 +17,20 @@
         margin: 6px 0px;
       }
       .layout-container {
-        display: grid;
-        grid-template-columns: 400px 400px 400px;
-        row-gap: 12px;
-        column-gap: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
       }
     </style>
   </head>
   <body>
     <main class="main-container">
-      <div class="js-layout-container layout-container"></div>
       <div class="js-display-4"></div>
+      <div class="js-layout-container layout-container"></div>
     </main>
     <script src="metObjectIdRequest.js" type="module"></script>
     <script src="metObjectTitleRequest.js" type="module"></script>
     <script src="nestedRequests.js" type="module"></script>
+    <script src="renderMetObject.js" type="module"></script>
   </body>
 </html>
