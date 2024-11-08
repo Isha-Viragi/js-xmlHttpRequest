@@ -8,7 +8,8 @@ export function renderMetObject(data) {
   </div>
   <div>${data.objectName || "No object name found"}</div>
   <div>${data.artistDisplayName || "No artist name found"}</div>
+  <div>${data.objectDate || "No date found"}</div>
   `
   display.innerHTML = html || "Could not find a MET object";
-  console.log(data.primaryImage)
+  console.log(data)
 }

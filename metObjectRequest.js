@@ -1,4 +1,4 @@
-export function metObjectTitleRequest(id, renderFunction) {
+export function metObjectRequest(id, renderFunction) {
   const xhrTitle = new XMLHttpRequest();
 
   xhrTitle.open('GET', `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);

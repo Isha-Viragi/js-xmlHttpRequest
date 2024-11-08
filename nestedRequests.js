@@ -1,5 +1,5 @@
 import { metObjectIdRequest } from "./metObjectIdRequest.js";
-import { metObjectTitleRequest } from "./metObjectTitleRequest.js";
+import { metObjectRequest } from "./metObjectRequest.js";
 import { renderMetObject } from "./renderMetObject.js";
 
 let word;
@@ -20,7 +20,7 @@ catFactXhr.addEventListener('load', () => {
 
   metObjectIdRequest(word, (id) => {
     console.log('callback2');
-    metObjectTitleRequest(id, (data) => {
+    metObjectRequest(id, (data) => {
       console.log('callback3');
       renderMetObject(data);
     });
