@@ -13,10 +13,8 @@ catFactXhr.addEventListener('load', () => {
   renderCatFact(data, word);
 
   metIdRequest(word, (id) => {
-    console.log('callback2');
     metObjectRequest(id, (data) => {
-      console.log('callback3');
-      renderMetObject(data);
+      renderMetObject(data, word);
     });
   })
 
@@ -26,6 +24,7 @@ function renderCatFact(data, word) {
   const display = document.querySelector('.js-cat-fact-container');
 
   display.innerHTML = `
+  <h2>Random Cat Fact</h2>
   <div class="fact">${data}</div>
   <div class="fact-word">Selected word: ${word}</div>
   `;

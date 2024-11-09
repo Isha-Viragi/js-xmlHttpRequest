@@ -1,14 +1,25 @@
-export function renderMetObject(data) {
-  const display = document.querySelector('.js-layout-container')
+export function renderMetObject(data, word) {
+  const display = document.querySelector('.js-met-info-container')
   let html;
   html = `
-  <div>${data.title || "No title found"}</div>
-  <div>
-  ${(data.primaryImage && `<img src=${data.primaryImage}>`) || "No image found"}
+  <h2>Metropolitan Mueseum of Art Collection</h2>
+  <h3 class="met-title-h3">Artwork based on selected word <span>${word}</span></h3>
+  <div>${(data.title && `Title: ${data.title}`)
+    || "<span class='error-message'><img class='symbol' src='images/error.svg'>No title found</span>"}
   </div>
-  <div>${data.objectName || "No object name found"}</div>
-  <div>${data.artistDisplayName || "No artist name found"}</div>
-  <div>${data.objectDate || "No date found"}</div>
+  <div class="met-image-container">
+  ${(data.primaryImage && `<img class="met-generated-image" src=${data.primaryImageSmall || data.primaryImage}>`)
+    || "<span class='error-message'><img class='symbol' src='images/error.svg'>No image found</span>"}
+  </div>
+  <div>${(data.objectName && `Type: ${data.objectName}`)
+    || "<span class='error-message'><img class='symbol' src='images/error.svg'>No object name found</span>"}
+  </div>
+  <div>${(data.artistDisplayName && `By ${data.artistDisplayName}`)
+    || "<span class='error-message'><img class='symbol' src='images/error.svg'>No artist name found</span>"}
+  </div>
+  <div>${data.objectDate
+    || "<span class='error-message'><img class='symbol' src='images/error.svg'>No date found</span>"}
+  </div>
   `
   display.innerHTML = html || "Could not find a MET object";
   console.log(data)

@@ -8,33 +8,52 @@ p {
 }
 
 .main-container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
 }
 
-.cat-fact-container {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.fact-word {
-  font-style: italic;
-}
-
+.cat-fact-container,
 .met-info-container {
   display: flex;
   flex-direction: column;
   gap: 14px;
   justify-content: center;
   align-items: center;
+  padding: 20px 32px;
 }
 
-.met-info-container img {
+
+.cat-fact-container{
+  background-color: rgb(175, 175, 175);
+}
+.fact-word {
+  font-style: italic;
+}
+
+.met-info-container {
+  background-color: rgb(94, 94, 94);
+}
+.met-info-container div {
+  text-align: center;
+}
+.met-title-h3 span {
+  font-style: italic;
+}
+.met-generated-image {
   height: 300px;
 }
 
-.met-title-h3 span {
-  text-decoration: underline;
+
+.error-message{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-style: italic;
+  color: rgb(157, 157, 157);
 }
+.symbol{
+  height: 20px;
+}
+
+
