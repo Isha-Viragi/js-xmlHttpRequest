@@ -8,14 +8,24 @@
       * {
         font-family: Helvetica, Arial, sans-serif;
       }
-      .main-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
       p {
         margin: 6px 0px;
       }
+      .main-container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .cat-fact-container {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .fact-word {
+        font-style: italic;
+      }
+
       .layout-container {
         display: flex;
         flex-direction: column;
@@ -28,7 +38,7 @@
   </head>
   <body>
     <main class="main-container">
-      <div class="js-display-4"></div>
+      <div class="js-cat-fact-container cat-fact-container"></div>
       <div class="js-layout-container layout-container"></div>
     </main>
     <script src="metIdRequest.js" type="module"></script>

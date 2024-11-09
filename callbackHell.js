@@ -2,21 +2,15 @@ import { metIdRequest } from "./metIdRequest.js";
 import { metObjectRequest } from "./metObjectRequest.js";
 import { renderMetObject } from "./renderMetObject.js";
 
-let word;
 const catFactXhr = new XMLHttpRequest();
 
 catFactXhr.open('GET', "https://meowfacts.herokuapp.com/");
 catFactXhr.send();
 
 catFactXhr.addEventListener('load', () => {
-  const data = JSON.parse(catFactXhr.response).data[0];
-  document.querySelector('.js-display-4').innerHTML = data;
-
-  const words = data.split(" ") || ['undefined'];
-
-  const index = Math.floor(Math.random() * words.length);
-  word = words[index]
-  console.log(word)
+  const data = JSON.parse(catFactXhr.response).data[0]; //[0] since it always only generates 1 fact
+  const word = randomWordSelector(data);
+  renderCatFact(data, word);
 
   metIdRequest(word, (id) => {
     console.log('callback2');
@@ -24,7 +18,22 @@ catFactXhr.addEventListener('load', () => {
       console.log('callback3');
       renderMetObject(data);
     });
-
   })
 
 })
+
+function renderCatFact(data, word) {
+  const display = document.querySelector('.js-cat-fact-container');
+
+  display.innerHTML = `
+  <div class="fact">${data}</div>
+  <div class="fact-word">Selected word: ${word}</div>
+  `;
+}
+
+function randomWordSelector(data) {
+  const words = data.split(" ") || ['undefined'];
+
+  const index = Math.floor(Math.random() * words.length);
+  return words[index]
+}
