@@ -5,11 +5,14 @@ export function metObjectIdRequest(word, callbackFunction) {
   xhr.send();
 
   xhr.addEventListener('load', () => {
-    const id = JSON.parse(xhr.response).objectIDs[0];
+    const ids = JSON.parse(xhr.response).objectIDs;
+    const id = selectRandomId(ids);
 
-    if (callbackFunction)
-      callbackFunction(id)
+    callbackFunction(id)
   })
 }
 
-
+function selectRandomId(ids) {
+  const index = Math.floor(Math.random() * ids.length);
+  return ids[index];
+}
