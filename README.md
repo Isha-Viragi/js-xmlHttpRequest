@@ -27,7 +27,7 @@ List of Open Source APIs used:
 meowfacts  
 https://github.com/wh-iterabb-it/meowfacts
 
-cataas 
+cataas   
 https://cataas.com/
 
 The Metroppolitan Museum of Art Collection API  
