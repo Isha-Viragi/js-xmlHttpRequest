@@ -13,6 +13,21 @@ p {
   height: 100vh;
 }
 
+.arrow{
+  position: fixed;
+  height: 140px;
+  width: 140px;
+  top: 50%;
+  right: 50%;
+  border-radius: 100px;
+
+  transform: translate(50%, -50%);
+
+  background-color: rgb(255, 255, 255);
+}
+.arrow img {
+  width: 100%;
+}
 .cat-fact-container,
 .met-info-container {
   display: flex;
