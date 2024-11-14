@@ -9,11 +9,11 @@ export function catImageRequest(successCallback, errorCallback) {
       successCallback(catImg);
     }
     else {
-      errorCallback('Cat image request failed');
+      errorCallback(`Cat image request failed with status: "${xhr.statusText}"`);
     }
   })
 
   xhr.addEventListener('error', () => {
-    errorCallback('Cat image request failed')
+    errorCallback('Cat image request failed to load')
   })
 }
