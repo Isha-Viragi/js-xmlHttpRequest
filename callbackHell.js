@@ -21,6 +21,7 @@ catFactXhr.addEventListener('load', () => {
     catImageRequest((catImg) => {
       renderCatFact(catData, word, catImg);
       metIdRequest(word, (id) => {
+        renderArrow();
         metObjectRequest(id, (metData) => {
           renderMetObject(metData, word);
         }, (message) => {
@@ -57,6 +58,14 @@ function randomWordSelector(data) {
   let word = words[index];
   word = word.replace(/\W/g, ''); //use regex to remove punctuations
   return word;
+}
+
+function renderArrow() {
+  const arrowContainer = document.querySelector('.js-arrow-container');
+  arrowContainer.classList.add('arrow-container-on')
+  arrowContainer.innerHTML = `
+  <img src="images/arrow.svg" alt="arrow" />
+  `
 }
 
 function renderErrorMessage(section, message) {

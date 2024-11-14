@@ -13,7 +13,8 @@ p {
   height: 100vh;
 }
 
-.arrow{
+.arrow-container{
+  display: none;
   position: fixed;
   height: 140px;
   width: 140px;
@@ -25,7 +26,10 @@ p {
 
   background-color: rgb(255, 255, 255);
 }
-.arrow img {
+.arrow-container-on{
+  display: initial;
+}
+.arrow-container img {
   width: 100%;
 }
 .cat-container,

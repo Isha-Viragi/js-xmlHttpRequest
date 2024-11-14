@@ -1,5 +1,5 @@
 export function renderMetObject(data, word) {
-  const display = document.querySelector('.js-met-container')
+  const display = document.querySelector('.js-met-container');
   let html;
   html = `
   <h2>Metropolitan Mueseum of Art Collection</h2>
