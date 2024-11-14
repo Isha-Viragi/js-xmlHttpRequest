@@ -8,21 +8,30 @@ const catFactXhr = new XMLHttpRequest();
 catFactXhr.open('GET', "https://meowfacts.herokuapp.com/");
 catFactXhr.send();
 
+catFactXhr.addEventListener('error', () => {
+  renderErrorMessage('cat-section', "Cat fact request failed to load");
+})
 
 catFactXhr.addEventListener('load', () => {
-  const catData = JSON.parse(catFactXhr.response).data[0]; //[0] since it always only generates 1 fact
-  const word = randomWordSelector(catData);
+  if (catFactXhr.status === 200) {
 
-  catImageRequest((catImg) => {
-    renderCatFact(catData, word, catImg);
-    metIdRequest(word, (id) => {
-      metObjectRequest(id, (metData) => {
-        renderMetObject(metData, word);
-      })
-    });
-  }, (message) => {
-    renderErrorMessage("cat", message)
-  })
+    const catData = JSON.parse(catFactXhr.response).data[0]; //[0] since it always only generates 1 fact
+    const word = randomWordSelector(catData);
+
+    catImageRequest((catImg) => {
+      renderCatFact(catData, word, catImg);
+      metIdRequest(word, (id) => {
+        metObjectRequest(id, (metData) => {
+          renderMetObject(metData, word);
+        })
+      });
+    }, (message) => {
+      renderErrorMessage("cat-section", message)
+    })
+  }
+  else {
+    renderErrorMessage('cat-section', `Cat fact request failed with status: "${catFactXhr.statusText}"`);
+  }
 })
 
 function renderCatFact(data, word, catImg) {
@@ -46,7 +55,7 @@ function randomWordSelector(data) {
 }
 
 function renderErrorMessage(section, message) {
-  if (section === "cat") {
+  if (section === "cat-section") {
     const display = document.querySelector('.js-cat-fact-container');
     display.innerHTML = `
     <div class="cat-error-message">
