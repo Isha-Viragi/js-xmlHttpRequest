@@ -20,6 +20,8 @@ catFactXhr.addEventListener('load', () => {
         renderMetObject(metData, word);
       })
     });
+  }, (message) => {
+    renderErrorMessage("cat", message)
   })
 })
 
@@ -41,4 +43,16 @@ function randomWordSelector(data) {
   let word = words[index];
   word = word.replace(/\W/g, ''); //use regex to remove punctuations
   return word;
+}
+
+function renderErrorMessage(section, message) {
+  if (section === "cat") {
+    const display = document.querySelector('.js-cat-fact-container');
+    display.innerHTML = `
+    <div class="cat-error-message">
+    <img src="images/error.svg" alt="Error symbol" class="symbol">
+    ${message}
+    </div>
+    `;
+  }
 }

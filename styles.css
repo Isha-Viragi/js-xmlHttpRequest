@@ -38,8 +38,7 @@ p {
   padding: 20px 32px;
 }
 
-
-.cat-fact-container{
+.cat-fact-container {
   background-color: rgb(175, 175, 175);
 }
 .fact-word {
@@ -59,16 +58,19 @@ p {
   height: 300px;
 }
 
-
-.error-message{
+.met-error-message, .cat-error-message {
   display: flex;
   align-items: center;
   gap: 4px;
   font-style: italic;
-  color: rgb(157, 157, 157);
 }
-.symbol{
-  height: 20px;
+.met-error-message{
+  color: rgb(84, 21, 21);
+}
+.cat-error-message {
+  color: rgb(147, 27, 27);
 }
 
-
+.symbol {
+  height: 22px;
+}
