@@ -3,10 +3,6 @@
   margin: 0px;
 }
 
-p {
-  margin: 6px 0px;
-}
-
 .main-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -16,8 +12,8 @@ p {
 .arrow-container{
   display: none;
   position: fixed;
-  height: 140px;
-  width: 140px;
+  height: 110px;
+  width: 110px;
   top: 50%;
   right: 50%;
   border-radius: 100px;
@@ -27,11 +23,15 @@ p {
   background-color: rgb(255, 255, 255);
 }
 .arrow-container-on{
-  display: initial;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
 }
 .arrow-container img {
   width: 100%;
 }
+
 .cat-container,
 .met-container {
   display: flex;
@@ -39,7 +39,7 @@ p {
   gap: 14px;
   justify-content: center;
   align-items: center;
-  padding: 20px 32px;
+  padding: 20px 100px;
 }
 
 .cat-container {
@@ -48,6 +48,9 @@ p {
 .fact-word {
   font-style: italic;
 }
+.fact-word span{
+  text-decoration: underline;
+}
 
 .met-container {
   background-color: rgb(94, 94, 94);
@@ -55,8 +58,13 @@ p {
 .met-container div {
   text-align: center;
 }
-.met-title-h3 span {
+
+.met-word-display{
+  color: rgb(175, 175, 175);
   font-style: italic;
+}
+.met-word-display span {
+  text-decoration: underline;
 }
 .met-generated-image {
   height: 300px;

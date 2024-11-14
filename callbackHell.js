@@ -21,7 +21,7 @@ catFactXhr.addEventListener('load', () => {
     catImageRequest((catImg) => {
       renderCatFact(catData, word, catImg);
       metIdRequest(word, (id) => {
-        renderArrow();
+        renderArrow(word);
         metObjectRequest(id, (metData) => {
           renderMetObject(metData, word);
         }, (message) => {
@@ -47,7 +47,7 @@ function renderCatFact(data, word, catImg) {
   <h2>Random Cat Fact</h2>
   <div>${catImg}</div>
   <div class="fact">${data}</div>
-  <div class="fact-word">Selected word: ${word}</div>
+  <div class="fact-word">Selected word: <span>${word}</span></div>
   `;
 }
 

@@ -3,8 +3,8 @@ export function renderMetObject(data, word) {
   let html;
   html = `
   <h2>Metropolitan Mueseum of Art Collection</h2>
-  <h3 class="met-title-h3">Artwork based on selected word <span>${word}</span></h3>
-  <div>${(data.title && `Title: ${data.title}`)
+  <p class="met-word-display">Artwork based on selected word <span>${word}</span></p>
+  <div>${(data.title && `<h3>Title: ${data.title}</h3>`)
     || "<span class='met-error-message'><img class='symbol' src='images/error.svg'>No title found</span>"}
   </div>
   <div class="met-image-container">
