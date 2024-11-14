@@ -1,11 +1,20 @@
-export function metObjectRequest(id, renderFunction) {
-  const xhrTitle = new XMLHttpRequest();
+export function metObjectRequest(id, renderCallback, errorCallback) {
+  const xhr = new XMLHttpRequest();
 
-  xhrTitle.open('GET', `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);
-  xhrTitle.send();
+  xhr.open('GET', `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);
+  xhr.send();
 
-  xhrTitle.addEventListener('load', () => {
-    const data = JSON.parse(xhrTitle.response);
-    renderFunction(data);
+  xhr.addEventListener('load', () => {
+    if (xhr.status === 200) {
+      const data = JSON.parse(xhr.response);
+      renderCallback(data);
+    }
+    else {
+      errorCallback(`MET object request failed with status: "${xhr.statusText}"`)
+    }
+  })
+
+  xhr.addEventListener('error', () => {
+    errorCallback("Failed to load MET object request");
   })
 }

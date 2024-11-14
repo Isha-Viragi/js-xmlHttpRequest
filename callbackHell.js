@@ -23,19 +23,21 @@ catFactXhr.addEventListener('load', () => {
       metIdRequest(word, (id) => {
         metObjectRequest(id, (metData) => {
           renderMetObject(metData, word);
-        })
+        }, (message) => {
+          renderErrorMessage('met-section', message);
+        });
       }, (message) => {
-        renderErrorMessage('met-section', message)
+        renderErrorMessage('met-section', message);
       }
       );
     }, (message) => {
-      renderErrorMessage("cat-section", message)
-    })
+      renderErrorMessage("cat-section", message);
+    });
   }
   else {
     renderErrorMessage('cat-section', `Cat fact request failed with status: "${catFactXhr.statusText}"`);
   }
-})
+});
 
 function renderCatFact(data, word, catImg) {
   const display = document.querySelector('.js-cat-container');
