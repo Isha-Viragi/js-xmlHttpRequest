@@ -14,6 +14,6 @@ export function catImageRequest(successCallback, errorCallback) {
   })
 
   xhr.addEventListener('error', () => {
-    errorCallback('Cat image request failed to load')
+    errorCallback('Failed to load cat image request')
   })
 }

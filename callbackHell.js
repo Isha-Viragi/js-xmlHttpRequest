@@ -9,7 +9,7 @@ catFactXhr.open('GET', "https://meowfacts.herokuapp.com/");
 catFactXhr.send();
 
 catFactXhr.addEventListener('error', () => {
-  renderErrorMessage('cat-section', "Cat fact request failed to load");
+  renderErrorMessage('cat-section', "Failed to load cat fact request");
 })
 
 catFactXhr.addEventListener('load', () => {
@@ -24,7 +24,10 @@ catFactXhr.addEventListener('load', () => {
         metObjectRequest(id, (metData) => {
           renderMetObject(metData, word);
         })
-      });
+      }, (message) => {
+        renderErrorMessage('met-section', message)
+      }
+      );
     }, (message) => {
       renderErrorMessage("cat-section", message)
     })
@@ -63,5 +66,14 @@ function renderErrorMessage(section, message) {
     ${message}
     </div>
     `;
+  }
+  else if (section === "met-section") {
+    const display = document.querySelector('.js-met-info-container');
+    display.innerHTML = `
+    <div class="met-error-message">
+    <img src="images/error.svg" alt="Error symbol" class="symbol">
+    ${message}
+    </div>
+    `
   }
 }
