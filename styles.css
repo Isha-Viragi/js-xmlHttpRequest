@@ -28,8 +28,8 @@ p {
 .arrow img {
   width: 100%;
 }
-.cat-fact-container,
-.met-info-container {
+.cat-container,
+.met-container {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -38,17 +38,17 @@ p {
   padding: 20px 32px;
 }
 
-.cat-fact-container {
+.cat-container {
   background-color: rgb(175, 175, 175);
 }
 .fact-word {
   font-style: italic;
 }
 
-.met-info-container {
+.met-container {
   background-color: rgb(94, 94, 94);
 }
-.met-info-container div {
+.met-container div {
   text-align: center;
 }
 .met-title-h3 span {

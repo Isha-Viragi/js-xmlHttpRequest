@@ -38,7 +38,7 @@ catFactXhr.addEventListener('load', () => {
 })
 
 function renderCatFact(data, word, catImg) {
-  const display = document.querySelector('.js-cat-fact-container');
+  const display = document.querySelector('.js-cat-container');
 
   display.innerHTML = `
   <h2>Random Cat Fact</h2>
@@ -58,22 +58,15 @@ function randomWordSelector(data) {
 }
 
 function renderErrorMessage(section, message) {
-  if (section === "cat-section") {
-    const display = document.querySelector('.js-cat-fact-container');
-    display.innerHTML = `
-    <div class="cat-error-message">
+  let sectionName;
+  if (section === "cat-section") sectionName = 'cat';
+  else if (section === "met-section") sectionName = 'met';
+
+  const display = document.querySelector(`.js-${sectionName}-container`);
+  display.innerHTML = `
+    <div class="${sectionName}-error-message">
     <img src="images/error.svg" alt="Error symbol" class="symbol">
     ${message}
     </div>
-    `;
-  }
-  else if (section === "met-section") {
-    const display = document.querySelector('.js-met-info-container');
-    display.innerHTML = `
-    <div class="met-error-message">
-    <img src="images/error.svg" alt="Error symbol" class="symbol">
-    ${message}
-    </div>
-    `
-  }
+  `
 }
