@@ -3,42 +3,53 @@ import { metIdRequest } from "./metIdRequest.js";
 import { metObjectRequest } from "./metObjectRequest.js";
 import { renderMetObject } from "./renderMetObject.js";
 
-const catFactXhr = new XMLHttpRequest();
+function generateWelcomePage() {
+  const display = document.querySelector('.js-welcome-page-container');
+  display.innerHTML = `
+  <h1 class="welcome-page-title">👋🐱 Welcome to the METaCATinator 🙀🏛️</h1>
+  <img class="welcome-page-doof" src="images/doofenshmirtz.png" alt="Image of Doofenshmirtz from cartoon show Phineas and Ferb explaining something with a pleasant smile">
+  `
+}
+generateWelcomePage();
 
-catFactXhr.open('GET', "https://meowfacts.herokuapp.com/");
-catFactXhr.send();
+function generateCatFact() {
+  const catFactXhr = new XMLHttpRequest();
 
-catFactXhr.addEventListener('error', () => {
-  renderErrorMessage('cat-section', "Failed to load cat fact request");
-})
+  catFactXhr.open('GET', "https://meowfacts.herokuapp.com/");
+  catFactXhr.send();
 
-catFactXhr.addEventListener('load', () => {
-  if (catFactXhr.status === 200) {
+  catFactXhr.addEventListener('error', () => {
+    renderErrorMessage('cat-section', "Failed to load cat fact request");
+  })
 
-    const catData = JSON.parse(catFactXhr.response).data[0]; //[0] since it always only generates 1 fact
-    const word = randomWordSelector(catData);
+  catFactXhr.addEventListener('load', () => {
+    if (catFactXhr.status === 200) {
 
-    catImageRequest((catImg) => {
-      renderCatFact(catData, word, catImg);
-      metIdRequest(word, (id) => {
-        renderArrow(word);
-        metObjectRequest(id, (metData) => {
-          renderMetObject(metData, word);
+      const catData = JSON.parse(catFactXhr.response).data[0]; //[0] since it always only generates 1 fact
+      const word = randomWordSelector(catData);
+
+      catImageRequest((catImg) => {
+        renderCatFact(catData, word, catImg);
+        metIdRequest(word, (id) => {
+          renderArrow(word);
+          metObjectRequest(id, (metData) => {
+            renderMetObject(metData, word);
+          }, (message) => {
+            renderErrorMessage('met-section', message);
+          });
         }, (message) => {
           renderErrorMessage('met-section', message);
-        });
+        }
+        );
       }, (message) => {
-        renderErrorMessage('met-section', message);
-      }
-      );
-    }, (message) => {
-      renderErrorMessage("cat-section", message);
-    });
-  }
-  else {
-    renderErrorMessage('cat-section', `Cat fact request failed with status: "${catFactXhr.statusText}"`);
-  }
-});
+        renderErrorMessage("cat-section", message);
+      });
+    }
+    else {
+      renderErrorMessage('cat-section', `Cat fact request failed with status: "${catFactXhr.statusText}"`);
+    }
+  });
+}
 
 function renderCatFact(data, word, catImg) {
   const display = document.querySelector('.js-cat-container');

@@ -9,6 +9,28 @@
   height: 100vh;
 }
 
+.welcome-page-container{
+  position: fixed;
+  top: 25%;
+  right: 50%;
+  transform: translate(50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  gap: 16px;
+}
+.welcome-page-title{
+  background-color: white;
+  padding: 10px 22px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+.welcome-page-doof{
+  width: 250px;
+}
+
 .arrow-container{
   display: none;
   position: fixed;
