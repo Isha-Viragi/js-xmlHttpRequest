@@ -45,20 +45,40 @@ function renderCatFact(data, word, catImg) {
 
   display.innerHTML = `
   <h2>Random Cat Fact</h2>
-  <div>${catImg}</div>
+  <div class="cat-image">${catImg}</div>
   <div class="fact">${data}</div>
   <div class="fact-word">Selected word: <span>${word}</span></div>
   `;
 }
 
 function randomWordSelector(data) {
-  const words = data.split(" ") || ['undefined'];
+  //Use do-while loop
+  //do 1st- We want this done regardless 
+  let word;
+  do {
+    const words = data.split(" ") || ['undefined'];
 
-  const index = Math.floor(Math.random() * words.length);
-  let word = words[index];
-  word = word.replace(/\W/g, ''); //use regex to remove punctuations
+    const index = Math.floor(Math.random() * words.length);
+    word = words[index].toLowerCase();
+    word = word.replace(/\W/g, ''); //use regex to remove punctuations
+
+  } while (isWordToAvoid(word))
+  //keep doing while word is wrong
+  //and once the word is not wrong
   return word;
 }
+
+function isWordToAvoid(word) {
+  const wordsToAvoid = new Set([
+    'a', 'the', 'an', 'and', 'of', 'in', 'on', 'to', 'with', 'for', 'by', 'at', 'from',
+    'is', 'are', 'was', 'were', 'this', 'that', 'it', 'be', 'has', 'have', 'will', 'do',
+    'he', 'she', 'we', 'they', 'you', 'me', 'him', 'her', 'them', 'us', 'can', 'could',
+    'would', 'should', 'may', 'does', 'did', 'had', 'been', 'am', 'being', 'or', 'nor',
+    'so', 'yet', 'but', 'and', 'its', "it's"
+  ]);
+  return wordsToAvoid.has(word);
+}
+
 
 function renderArrow() {
   const arrowContainer = document.querySelector('.js-arrow-container');
