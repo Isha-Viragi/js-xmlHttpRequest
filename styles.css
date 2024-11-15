@@ -45,6 +45,14 @@
 .cat-container {
   background-color: rgb(175, 175, 175);
 }
+.cat-image, 
+.met-image {
+  max-width: 450px;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  height: 300px;
+}
 .fact-word {
   font-style: italic;
 }
@@ -66,9 +74,7 @@
 .met-word-display span {
   text-decoration: underline;
 }
-.met-generated-image {
-  height: 300px;
-}
+
 
 .met-error-message, .cat-error-message {
   display: flex;

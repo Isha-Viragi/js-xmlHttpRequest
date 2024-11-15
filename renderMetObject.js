@@ -8,7 +8,7 @@ export function renderMetObject(data, word) {
     || "<span class='met-error-message'><img class='symbol' src='images/error.svg'>No title found</span>"}
   </div>
   <div class="met-image-container">
-  ${(data.primaryImage && `<img class="met-generated-image" src=${data.primaryImageSmall || data.primaryImage}>`)
+  ${(data.primaryImage && `<img class="met-image" src=${data.primaryImageSmall || data.primaryImage}>`)
     || "<span class='met-error-message'><img class='symbol' src='images/error.svg'>No image found</span>"}
   </div>
   <div>${(data.objectName && `Type: ${data.objectName}`)
