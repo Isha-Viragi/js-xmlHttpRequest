@@ -7,8 +7,15 @@ function generateWelcomePage() {
   const display = document.querySelector('.js-welcome-page-container');
   display.innerHTML = `
   <h1 class="welcome-page-title">👋🐱 Welcome to the METaCATinator 🙀🏛️</h1>
-  <img class="welcome-page-doof" src="images/doofenshmirtz.png" alt="Image of Doofenshmirtz from cartoon show Phineas and Ferb explaining something with a pleasant smile">
+  <h2 class="welcome-page-sub-title">Take a <span>random cat fact</span> and find a coressponding piece of <span>art from the MET</span></h2>
+  <div class="welcome-page-image-button-container">
+  <button class="js-welcome-page-generate-button welcome-page-generate-button">🐈 CAT FACT ME 👊</button>
+  <img class="welcome-page-doof" src="images/doofenshmirtz.png" alt="Image of Dr. Doofenshmirtz">
+  </div>
   `
+
+  const catFactButton = document.querySelector('.js-welcome-page-generate-button');
+  console.log(catFactButton);
 }
 generateWelcomePage();
 
@@ -64,7 +71,7 @@ function renderCatFact(data, word, catImg) {
 
 function randomWordSelector(data) {
   //Use do-while loop
-  //do 1st- We want this done regardless 
+  //do 1st- We want this done regardless
   let word;
   do {
     const words = data.split(" ") || ['undefined'];

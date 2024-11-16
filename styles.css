@@ -2,7 +2,9 @@
   font-family: Helvetica, Arial, sans-serif;
   margin: 0px;
 }
-
+button:hover{
+  cursor: pointer;
+}
 .main-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -11,14 +13,14 @@
 
 .welcome-page-container{
   position: fixed;
-  top: 25%;
+  top: 20%;
   right: 50%;
   transform: translate(50%);
 
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  align-items: end;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
 }
 .welcome-page-title{
@@ -26,6 +28,40 @@
   padding: 10px 22px;
   border-radius: 12px;
   white-space: nowrap;
+  margin-bottom: 10px;
+}
+.welcome-page-sub-title{
+  font-size: 22px;
+  font-weight: 100;
+  white-space: nowrap;
+}
+.welcome-page-sub-title span{
+  background-color: rgb(199, 199, 199);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.welcome-page-image-button-container{
+  display: flex;
+  align-items: center;
+  transform: translate(25%);
+  gap: 20px;
+}
+.welcome-page-generate-button{
+  font-size: 22px;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-bottom: 40px;
+  color: white;
+  background-color: #000000;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.374);
+}
+.welcome-page-generate-button:active{
+  transform: translate(5px, 5px);
+  box-shadow: 0px 0px 0px ;
 }
 .welcome-page-doof{
   width: 250px;
