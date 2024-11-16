@@ -57,11 +57,13 @@ button:hover{
   padding: 10px 16px;
   border: none;
   border-radius: 30px;
-  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.374);
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
+
+  transition: transform 0.1s, box-shadow 0.1s;
 }
 .welcome-page-generate-button:active{
   transform: translate(5px, 5px);
-  box-shadow: 0px 0px 0px ;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 .welcome-page-doof{
   width: 250px;

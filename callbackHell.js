@@ -15,8 +15,11 @@ function generateWelcomePage() {
   `
 
   const catFactButton = document.querySelector('.js-welcome-page-generate-button');
-  console.log(catFactButton);
+  catFactButton.addEventListener('click', () => {
+    generateCatFact();
+  })
 }
+
 generateWelcomePage();
 
 function generateCatFact() {
