@@ -4,6 +4,7 @@
 }
 button:hover{
   cursor: pointer;
+  scale: 1.07;
 }
 .main-container {
   display: grid;
@@ -40,14 +41,26 @@ button:hover{
   border-radius: 6px;
   padding: 4px 8px;
 }
-
-.welcome-page-image-button-container{
+.welcome-page-image-container{
+  width: 840px;
   display: flex;
-  align-items: center;
-  transform: translate(25%);
-  gap: 20px;
+  justify-content: space-between;
 }
-.welcome-page-generate-button{
+.welcome-page-doof-image{
+  width: 250px;
+  margin-left: 20px;
+}
+.welcome-page-cat-image{
+  width: 300px;
+}
+
+.button-container{
+  position: fixed;
+  top: 55%;
+  right: 50%;
+  transform: translate(50%);
+}
+.cat-fact-button{
   font-size: 22px;
   font-weight: bold;
   white-space: nowrap;
@@ -57,24 +70,23 @@ button:hover{
   padding: 10px 16px;
   border: none;
   border-radius: 30px;
-  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
 
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition: transform 0.29s, scale 0.12s
 }
-.welcome-page-generate-button:active{
-  transform: translate(5px, 5px);
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+.cat-fact-button:active{
+  scale: 1;
 }
-.welcome-page-doof{
-  width: 250px;
+.move{
+  transform: translate(0px, 16px);
 }
+
 
 .arrow-container{
   display: none;
   position: fixed;
   height: 110px;
   width: 110px;
-  top: 50%;
+  top: 45%;
   right: 50%;
   border-radius: 100px;
 
@@ -126,7 +138,6 @@ button:hover{
 .met-container div {
   text-align: center;
 }
-
 .met-word-display{
   color: rgb(175, 175, 175);
   font-style: italic;
@@ -134,7 +145,6 @@ button:hover{
 .met-word-display span {
   text-decoration: underline;
 }
-
 
 .met-error-message, .cat-error-message {
   display: flex;
@@ -151,4 +161,7 @@ button:hover{
 
 .symbol {
   height: 22px;
+}
+.hide {
+  display: none;
 }

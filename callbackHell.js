@@ -8,15 +8,21 @@ function generateWelcomePage() {
   display.innerHTML = `
   <h1 class="welcome-page-title">👋🐱 Welcome to the METaCATinator 🙀🏛️</h1>
   <h2 class="welcome-page-sub-title">Take a <span>random cat fact</span> and find a coressponding piece of <span>art from the MET</span></h2>
-  <div class="welcome-page-image-button-container">
-  <button class="js-welcome-page-generate-button welcome-page-generate-button">🐈 CAT FACT ME 👊</button>
-  <img class="welcome-page-doof" src="images/doofenshmirtz.png" alt="Image of Dr. Doofenshmirtz">
+  <div class="welcome-page-image-container">
+  <img class="welcome-page-cat-image" src="images/cat-point.png" alt="Image of a cat pointing to button">
+  <img class="welcome-page-doof-image" src="images/doofenshmirtz.png" alt="Image of Dr. Doofenshmirtz">
   </div>
   `
 
-  const catFactButton = document.querySelector('.js-welcome-page-generate-button');
+  const catFactButton = document.querySelector('.js-cat-fact-button');
   catFactButton.addEventListener('click', () => {
+
+    document.querySelector('.js-welcome-page-container').classList.add('hide');
+    catFactButton.classList.add('move');
+
     generateCatFact();
+
+
   })
 }
 
@@ -30,6 +36,7 @@ function generateCatFact() {
 
   catFactXhr.addEventListener('error', () => {
     renderErrorMessage('cat-section', "Failed to load cat fact request");
+
   })
 
   catFactXhr.addEventListener('load', () => {
