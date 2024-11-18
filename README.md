@@ -26,11 +26,20 @@ The sequence of operations is as follows:
 
 By implementing this project, I learned that callback hell lies in: 
   
-**Redundancies:**  Needing to create callbacks within callbacks to pass them as arguments instead of using a cleaner `.then()` method or modern `async/await`  
-**Complex Context Tracking:** Constantly keeping track of what argument was passed where and how it was used in subsequent callbacks can be mentally taxing   
-**Nested Error Handling:** Having to create separate callback layers specifically for error handling increases clutter   
-**Reduced Readability:** The difficulty it would pose for someone new to the codebase to try to decipher all of the layers   
-**Reduced Maintainability:** The nesting makes it difficult to modify just one part of the code without it affecting the rest  
+**Redundancies:**  
+Needing to create callbacks within callbacks to pass them as arguments instead of using a cleaner `.then()` method or modern `async/await`  
+  
+**Complex Context Tracking:**  
+Constantly keeping track of what argument was passed where and how it was used in subsequent callbacks can be mentally taxing
+  
+**Nested Error Handling:**  
+Having to create separate callback layers specifically for error handling increases clutter 
+  
+**Reduced Readability:**  
+The difficulty it would pose for someone new to the codebase to try to decipher all of the layers 
+  
+**Reduced Maintainability:**  
+The nesting makes it difficult to modify just one part of the code without it affecting the rest   
 
 ## Acknowledgments
 
